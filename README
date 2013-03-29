@@ -1,0 +1,48 @@
+---
+lol, pay for washing
+all code is for the mcu..
+---
+
+howto setup:
+- plugin an atmega32a to an breadboard and set it up with 5v 
+- connect rs232 to the uart interface
+- connect atmega to the laundry card:
+	PB2=CS
+	PB3=DI
+	PB4=DO
+	PB5=SK
+	5v=VCC
+	GND=GND (lol)
+- install avr-gcc and avrdude, setup an isp connection to atmega
+- then run:
+	# make all
+	# make program
+
+howto use:
+1. open uart connection with cutecom or something like that
+   baud=9600UL
+2. follow instructions
+3. ???
+4. profit!
+
+
+---
+laundry card:
+
+	---------------
+				  |
+	[DI ] [SK ]   |
+	[DO ] [CS ]   |
+	[GND] [VCC]   |
+				  |
+	---------------
+
+---
+chip on laundry card:
+
+	VCC -|   o|- CS
+	NC 	-|    |- SK
+	ORG -|	  |- DI
+	GND -|    |- DO
+
+---
