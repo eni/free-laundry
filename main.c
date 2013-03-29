@@ -42,9 +42,9 @@ ISR(USART_RXC_vect) {
 			if (valid){
 				balance=get_balance();
 				sprintf(msg,"valid card, balance: %i\n", balance);
-				put_c(msg);
+				put_s(msg);
 			} else {
-				put_c("no card detected, double check connections");
+				put_s("no card detected, double check connections");
 			}
 			break;
 		
@@ -53,9 +53,9 @@ ISR(USART_RXC_vect) {
 			valid=is_valid_card();
 			if (valid){
 				set_balance(0x24);
-				put_c("new card balance: 99.90.-");
+				put_s("new card balance: 99.90.-");
 			} else {
-				put_c("no card detected, double check connections");
+				put_s("no card detected, double check connections");
 			}
 			break;
 		
@@ -64,9 +64,9 @@ ISR(USART_RXC_vect) {
 			valid=is_valid_card();
 			if (valid){
 				set_balance(0x00);
-				put_c("new card balance: 00.00.-");
+				put_s("new card balance: 00.00.-");
 			} else {
-				put_c("no card detected, double check connections");
+				put_s("no card detected, double check connections");
 			}
 			break;
 		
